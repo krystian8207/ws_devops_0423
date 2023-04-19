@@ -6,7 +6,8 @@ ui <- shinydashboardPlus::dashboardPage(
     title = "Sales App" |> shiny::h3(class = "dropdown", style = "display: inline;")
   ),
   sidebar = shinydashboardPlus::dashboardSidebar(
-    minified = TRUE, collapsed = FALSE
+    minified = TRUE, collapsed = FALSE,
+    shiny::selectInput("store", "Store", choices = 1:3, selected = 1)
   ),
   body = shinydashboard::dashboardBody(
   ),
@@ -14,6 +15,7 @@ ui <- shinydashboardPlus::dashboardPage(
 )
 
 server <- function(input, output, session) {
+
 }
 
-shinyApp(ui, server, options = list(port = 8888, host = "0.0.0.0"))
+shinyApp(ui, server)
